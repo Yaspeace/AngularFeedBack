@@ -1,10 +1,11 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/feedback",
+      "/publish",
     ],
-    target: "https://localhost:7276",
-    secure: false
+    target: "http://tzangular.somee.com",
+    secure: false,
+    changeOrigin: true
   }
 ]
 

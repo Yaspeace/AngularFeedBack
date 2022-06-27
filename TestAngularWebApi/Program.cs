@@ -6,7 +6,7 @@ using TestAngularWebApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+string sqlConnection = builder.Configuration.GetConnectionString("tzangDBconn");
 builder.Services.AddDbContext<TestAngularDbContext>(options => options.UseSqlServer(sqlConnection));
 
 builder.Services.AddTransient<FieldsValidator>();
