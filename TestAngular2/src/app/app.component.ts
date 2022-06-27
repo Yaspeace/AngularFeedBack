@@ -14,7 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 
 export class AppComponent implements OnInit {
-  title = 'TestAngular2';
+  title = 'FeedbackForm';
   feedBackForm: FormGroup;
 
   themes?: MessageTheme[];
@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
   public captchaIsExpired = false;
   public captchaResponse?: string;
 
-  public theme: 'light' | 'dark' = 'dark';
+  public theme: 'light' | 'dark' = 'light';
   public size: 'compact' | 'normal' = 'normal';
-  public lang = 'en';
+  public lang = 'ru';
   public type: 'image' | 'audio' = 'image';
 
   constructor(
@@ -45,9 +45,9 @@ export class AppComponent implements OnInit {
       "name": ["", [Validators.required, Validators.pattern("[a-z|A-Z|а-я|А-Я]*")]],
       "email": ["", [Validators.required, Validators.email]],
       "phone": ["", Validators.required],
-      "theme": [""],
-      "message": ["", Validators.required]/*,
-      "recaptcha": ["", Validators.required]*/
+      "theme": ["", Validators.required],
+      "message": ["", Validators.required],
+      recaptcha: ["", Validators.required]
     });
   }
 

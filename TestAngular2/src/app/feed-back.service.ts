@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class FeedBackService {
-  private readonly url = "/publish/feedback";
+  private readonly url = "https://tzangular.somee.com/publish/feedback";
 
   constructor(private http: HttpClient) { }
 

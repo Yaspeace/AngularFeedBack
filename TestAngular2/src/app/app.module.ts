@@ -26,6 +26,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxMaskModule.forRoot(),
     BrowserAnimationsModule,
     NgxSpinnerModule.forRoot({ type: 'ball-fall' }),
+    NgxCaptchaModule,
   ],
   providers: [FeedBackService],
   bootstrap: [AppComponent],

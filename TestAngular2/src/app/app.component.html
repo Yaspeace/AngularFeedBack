@@ -45,7 +45,7 @@
         </td>
         <td>
           <select [ngClass]="{err:feedBackForm.controls['theme'].invalid}" name="Theme" formControlName="theme">
-            <option *ngFor="let theme of themes; let i = index" [value]="theme.themeId" [selected]="theme.themeId > 0">
+            <option *ngFor="let theme of themes; let i = index" [value]="theme.themeId">
               {{theme.themeName}}
             </option>
           </select>
@@ -66,9 +66,9 @@
           <label>Рекапча</label>
         </td>
         <td>
-          <!--<ngx-recaptcha2 #captchaElem siteKey="" (success)="handleSuccess($event)" [size]="size"
+          <ngx-recaptcha2 #captchaElem siteKey="6Ldap6QgAAAAAFi4J7BkypxTyl4Wc5X-dACV5oSe" [size]="size"
                           [hl]="lang" [theme]="theme" [type]="type" formControlName="recaptcha">
-          </ngx-recaptcha2>-->
+          </ngx-recaptcha2>
         </td>
       </tr>
 

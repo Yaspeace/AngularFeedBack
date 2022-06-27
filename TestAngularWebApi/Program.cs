@@ -11,6 +11,8 @@ builder.Services.AddDbContext<TestAngularDbContext>(options => options.UseSqlSer
 
 builder.Services.AddTransient<FieldsValidator>();
 
+builder.Services.AddCors();
+
 builder.Services.AddLogging();
 
 builder.Services.AddControllers();
@@ -28,6 +30,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
 
 app.UseAuthorization();
 
