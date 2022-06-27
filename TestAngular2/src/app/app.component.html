@@ -1,0 +1,93 @@
+<div class="dom-root">
+  <form *ngIf="themes && !addedMessage" [formGroup]="feedBackForm" novalidate (ngSubmit)="submit()">
+    <div class="ribbon">Напишите нам!</div>
+
+    <table class="under-ribbon">
+      <tr>
+        <td>
+          <label>Ваше имя:</label>
+        </td>
+        <td>
+          <div [ngClass]="{imgInput:feedBackForm.controls['name'].valid, imgInputErr: feedBackForm.controls['name'].invalid}">
+            <img src="../assets/imgs/profile.png" />
+            <input class="form-control" name="Name" formControlName="name" />
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Ваш email:</label>
+        </td>
+        <td>
+          <div [ngClass]="{imgInput:feedBackForm.controls['email'].valid, imgInputErr: feedBackForm.controls['email'].invalid}">
+            <img src="../assets/imgs/message.png" />
+            <input class="form-control" name="Email" formControlName="email" />
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Ваш телефон:</label>
+        </td>
+        <td>
+          <div [ngClass]="{imgInput:feedBackForm.controls['phone'].valid, imgInputErr: feedBackForm.controls['phone'].invalid}">
+            <img src="../assets/imgs/phone.png" />
+            <input class="form-control" name="Phone" formControlName="phone" prefix="+7" [dropSpecialCharacters]="false" mask="(000)000-00-00" />
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Тема:</label>
+        </td>
+        <td>
+          <select [ngClass]="{err:feedBackForm.controls['theme'].invalid}" name="Theme" formControlName="theme">
+            <option *ngFor="let theme of themes; let i = index" [value]="theme.themeId" [selected]="theme.themeId > 0">
+              {{theme.themeName}}
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Ваше сообщение:</label>
+        </td>
+        <td>
+          <textarea [ngClass]="{err:feedBackForm.controls['message'].invalid}" name="Message" formControlName="message"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Рекапча</label>
+        </td>
+        <td>
+          <!--<ngx-recaptcha2 #captchaElem siteKey="" (success)="handleSuccess($event)" [size]="size"
+                          [hl]="lang" [theme]="theme" [type]="type" formControlName="recaptcha">
+          </ngx-recaptcha2>-->
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          <button class="btn btn-default" [disabled]="feedBackForm.invalid">Отправить письмо!</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-fall" [fullScreen]="true"><p style="color: white"> Ожидание сервера... </p></ngx-spinner>
+
+  <div *ngIf="addedMessage">
+    Добавлено:<br />
+    {{msgString}}
+  </div>
+</div>
+
